@@ -1,0 +1,30 @@
+#primera vez para instalar todo
+
+docker-compose run --rm app bash
+
+# luego con todo instalado usar up
+
+docker-compose up --rm app bash
+
+#para ver modulos instalados
+
+pip freeze
+
+# ver version de python
+
+python --version
+
+# crear proyecto nuevo
+
+django-admin startproject eventbook
+
+# migrar la base de datos
+
+./manage.py migrate
+
+docker-compose run --rm app ./eventbook/manage.py check
+docker-compose run --rm app ./eventbook/manage.py migrate
+docker-compose run --rm app ./eventbook/manage.py createsuperuser
+
+# el archivo manage.py debe estar en el root
+docker-compose up
