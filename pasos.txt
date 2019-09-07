@@ -12,6 +12,7 @@ pip freeze
 
 # ver version de python
 
+
 python --version
 
 # crear proyecto nuevo
@@ -22,9 +23,49 @@ django-admin startproject eventbook
 
 ./manage.py migrate
 
-docker-compose run --rm app ./eventbook/manage.py check
-docker-compose run --rm app ./eventbook/manage.py migrate
-docker-compose run --rm app ./eventbook/manage.py createsuperuser
+docker-compose run --rm app ./manage.py check
+docker-compose run --rm app ./manage.py migrate
+docker-compose run --rm app ./manage.py createsuperuser
 
-# el archivo manage.py debe estar en el root
+# EJECUTAR PROYECTO el archivo manage.py debe estar en el root
 docker-compose up
+
+# ejecutar el proyecto
+
+
+
+#### GIT
+
+
+git add .
+git commit -m "Seteo inicial"
+git remote add origin https://github.com/pabloaronna/GH_tempEB.git
+git push -u origin master
+
+git status
+git log
+
+git checkout <nombre de archivo> lo vuelve al estado anterior
+git diff  <nombre de archivo>  me da los cambios que tiene
+
+DOCKER
+
+docker
+ images
+ rmi
+ stop
+ ps
+ kill
+ build
+
+
+docker-compose 
+ run
+ up
+ down
+ 
+
+
+
+
+
