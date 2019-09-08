@@ -32,7 +32,11 @@ docker-compose up
 
 # ejecutar el proyecto
 
+**** RECREAR CONTENEDORES y USUARIOS ADMINS
+docker-compose -f docker-compose.yaml up
 
+generar 
+docker-compose build --no-cache
 
 #### GIT
 

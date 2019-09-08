@@ -1,48 +1,73 @@
-version: '3.6'
-
+version: '3'
 services:
-  app:
-    build: 
-      context: .
-    command: ./manage.py runserver 0.0.0.0:8000
-    volumes: 
-      - .:/eventbook
-    ports: 
-      - 8000:8000
-    env_file:
-      - .env
-    depends_on:
-      - postgres
-  postgres:
-    image: postgres:11-alpine
-    restart: always
-    environment:
-      POSTGRES_PASSWORD: post_pass_1234
-    volumes:
-      - pgdata:/var/lib/postgresql/data
+  db:
+    image: postgres:11.1
+    container_name: db-container
     ports:
       - 5432:5432
-    networks:
-      - postgres-compose-network
+  app:
+    container_name: app-container
+    build:
+      context: .
+    command: ./manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/eventbook
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
     env_file:
       - .env
+
+
+
+
+#version: '3.6'
+
+#services:
+#  app:
+#    build: 
+#      context: .
+#    command: ./manage.py runserver 0.0.0.0:8000
+#    volumes: 
+#      - .:/eventbook
+#    ports: 
+#      - 8000:8000
+#    env_file:
+#      - .env
+#    depends_on:
+#      - postgres
+#  postgres:
+#    image: postgres:11-alpine
+#    restart: always
+#    environment:
+#      POSTGRES_PASSWORD: eventBook563412
+#      POSTGRES_USER: eventadminuser
+#    volumes:
+#      - pgdata:/var/lib/postgresql/data
+#    ports:
+#      - 5432:5432
+#   networks:
+#     - postgres-compose-network
+#    env_file:
+#      - .env
   
-  pgadmin:
-    image: dpage/pgadmin4
-    environment:
-      PGADMIN_DEFAULT_EMAIL: "pabloaronna@hotmail.com"
-      PGADMIN_DEFAULT_PASSWORD: "pgadmin_pass_1234"
-    ports:
-      - "16543:80"
-    depends_on:
-      - postgres
-    networks:
-      - postgres-compose-network
+#  pgadmin:
+#    image: dpage/pgadmin4
+#    environment:
+#      PGADMIN_DEFAULT_EMAIL: "pabloaronna@hotmail.com"
+#      PGADMIN_DEFAULT_PASSWORD: "pgadmin_pass_1234"
+#    ports:
+#      - "16543:80"
+#    depends_on:
+#      - postgres
+#    networks:
+#      - postgres-compose-network
 
-networks: 
-  postgres-compose-network:
-    driver: bridge
+#networks: 
+#  postgres-compose-network:
+#    driver: bridge
 
-volumes:
-  pgdata:
+#volumes:
+#  pgdata:
   
