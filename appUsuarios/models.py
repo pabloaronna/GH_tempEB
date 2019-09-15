@@ -2,12 +2,19 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, Permis
 from django.db import models
 from django.utils import timezone
 
+from django.conf import settings
+from django.db import models
+from django.db.models.signals import post_save
+
+User = settings.AUTH_USER_MODEL
 
 
 class UsuarioManager(BaseUserManager):
-	def _create_user(self, email, password, is_staff, is_superuser, is_admin, **extra_fields):
+	def _create_user(self, email, password=None, is_staff=False, is_superuser=False, is_admin=False, **extra_fields):
 		if not email:
-			raise ValueError('Users must have an email address')
+			raise ValueError('Cada usuario debe tener una direccion de email')
+		if not password:
+			raise ValueError('Cada usuario debe tener una contraseña')
 		now = timezone.now()
 		email = self.normalize_email(email)
 		user = self.model(
@@ -24,7 +31,7 @@ class UsuarioManager(BaseUserManager):
 		user.save(using=self._db)
 		return user
 
-	def create_user(self, email, password, **extra_fields):
+	def create_user(self, email, password=None, **extra_fields):
 		return self._create_user(email, password, False, False, False, **extra_fields)
 		
 	def create_superuser(self, email, password, **extra_fields):
@@ -41,6 +48,36 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
 	is_active				= models.BooleanField(default=True)
 	is_staff				= models.BooleanField(default=False)
 	is_superuser			= models.BooleanField(default=False)
+	
+	USERNAME_FIELD = 'email'
+	EMAIL_FIELD = 'email'
+	REQUIRED_FIELDS = []
+
+	objects = UsuarioManager()
+	
+	def get_absolute_url(self):
+		return "/users/%i/" % (self.pk)
+
+	def __str__(self):
+		return self.email
+
+	# For checking permissions. to keep it simple all admin have ALL permissons
+	def has_perm(self, perm, obj=None):
+		return self.is_admin
+
+	# Does this user have permission to view this app? (ALWAYS YES FOR SIMPLICITY)
+	def has_module_perms(self, app_label):
+		return True
+
+class ProfileManager(models.Manager):
+    def create_profile(self, user):
+        profile = self.create(usuario=user)
+        # do something with the book
+        return profile
+
+
+class Profile(models.Model):
+	usuario 				= models.OneToOneField(User, verbose_name=("Usuario"), on_delete=models.CASCADE)
 	nombre                  = models.CharField(max_length=50, blank=True)
 	apellido                = models.CharField(max_length=50, blank=True)
 	telefono				= models.CharField(max_length=20, blank=True)
@@ -57,16 +94,10 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
 	descripcion				= models.TextField(blank=True)
 	is_bloqueado			= models.BooleanField(verbose_name="Login Bloqueado", default=False)
 	is_deuda				= models.BooleanField(verbose_name="Posee Deuda", default=False)
-
-
-	USERNAME_FIELD = 'email'
-	EMAIL_FIELD = 'email'
-	REQUIRED_FIELDS = []
-
-	objects = UsuarioManager()
+	url_imagen_perfil		= models.URLField( max_length=200, blank=True)
+	last_update				= models.DateTimeField(auto_now=True)
 	
-	def get_absolute_url(self):
-		return "/users/%i/" % (self.pk)
+	objects = ProfileManager()
 
 	@property
 	def nombre_completo(self):
@@ -74,14 +105,6 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
 		return '%s %s' % (self.nombre, self.apellido)
 
 	def __str__(self):
-		return self.email
-
-	# For checking permissions. to keep it simple all admin have ALL permissons
-	def has_perm(self, perm, obj=None):
-		return self.is_admin
-
-	# Does this user have permission to view this app? (ALWAYS YES FOR SIMPLICITY)
-	def has_module_perms(self, app_label):
-		return True
-
+		return self.usuario.email
+	
 

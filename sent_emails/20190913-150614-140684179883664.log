@@ -1,0 +1,20 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: 
+ =?utf-8?q?=5Bhttps=3A//localhost=3A8000=5D_Por_favor_confirmar_direcci=C3=B3?=
+ =?utf-8?q?n_de_correo_electr=C3=B3nico?=
+From: webmaster@localhost
+To: pabloaronna@hotmail.com
+Date: Fri, 13 Sep 2019 15:06:14 -0000
+Message-ID: <156838717467.20.18267024585600543870@3e76fb5f6757>
+
+¡Te saluda https://localhost:8000!
+
+Estás recibiendo este correo electrónico porque el usuario  pabloaronna@hotmail.com ha dado su correo electrónico para conectar su cuenta.
+
+Para confirmar que esto es correcto, haz clic en http://localhost:8000/accounts/confirm-email/Mg:1i8n9K:hA1gvVCjSeJ_2pWFY_V7c38SQRw/
+
+Gracias https://localhost:8000!
+https://localhost:8000
+-------------------------------------------------------------------------------

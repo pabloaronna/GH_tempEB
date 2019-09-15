@@ -1,18 +1,12 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
-from appUsuarios.models import Usuario
+from appUsuarios.models import Usuario, Profile
 
 
 class UsuarioAdmin(BaseUserAdmin):
 	fieldsets = (
         (None, {'fields': ('email', 'password', 'name')}),
-		('Datos Personales',{'fields':('nombre', 'apellido', 'telefono', 'dni','latitud',
-		'longitud', 'fecha_nacimiento')}),
-		('Redes Sociales',{'fields':('url_facebook', 'url_Youtube', 'url_Instagram', 'url_Twitter','url_Pinterest',
-		'url_web')}),
-		('BIO',{'fields':('descripcion',)}),
-		('Restriccion de acceso',{'fields':('is_bloqueado', 'is_deuda')}),
         ('Permissions', {'fields': (
             'is_active', 
             'is_staff', 
@@ -45,3 +39,4 @@ class UsuarioAdmin(BaseUserAdmin):
 
 #admin.site.unregister(Usuario)
 admin.site.register(Usuario, UsuarioAdmin)
+admin.site.register(Profile)

@@ -25,7 +25,7 @@ SECRET_KEY = '7dql_zlmg4tr357)kgv9se6c4i7w^f!6v4c@vi0lme#ztf7f+e'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0','localhost','127.0.0.1',]
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend', # existing backend
@@ -45,8 +45,8 @@ INSTALLED_APPS = [
     # ... include the providers you want to enable:
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.google',
-    'allauth.socialaccount.providers.instagram',
-    'allauth.socialaccount.providers.twitter',
+    #'allauth.socialaccount.providers.instagram',
+    #'allauth.socialaccount.providers.twitter',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -72,7 +72,7 @@ ROOT_URLCONF = 'eventbook.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -92,6 +92,13 @@ ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
+#ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS=7
+
+LOGIN_REDIRECT_URL = '/' # default to /accounts/profile 
+ACCOUNT_LOGOUT_REDIRECT_URL = '/'
+
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
 
 WSGI_APPLICATION = 'eventbook.wsgi.application'
 
@@ -156,3 +163,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+
+MEDIA_ROOT = 'media'
+MEDIA_URL = '/media/'
+

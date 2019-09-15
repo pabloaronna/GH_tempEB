@@ -17,6 +17,10 @@ WORKDIR /eventbook
 
 ADD requirements.txt /eventbook/
 
+# Requerido para instalar Pillow (manejo de imagenes en Django)
+RUN apk add build-base python-dev py-pip jpeg-dev zlib-dev
+ENV LIBRARY_PATH=/lib:/usr/lib
+
 RUN pip install --upgrade pip \
     && pip install -r requirements.txt
 

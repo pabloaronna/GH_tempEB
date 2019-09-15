@@ -1,9 +1,0 @@
-{% extends 'home/base.html' %}
-
-{% block content %}
-
-    <h1>Portal HOME</h1>
-    {% for usuario in usuarios %}
-        <p>{{ usuario.email }} - ingreso: {{ usuario.date_joined|date:"d F, Y" }}</p>
-    {% endfor %}
-{% endblock content %}
