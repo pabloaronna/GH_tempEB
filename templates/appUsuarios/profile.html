@@ -1,18 +1,51 @@
-{% extends "account/base.html" %}
+{% extends 'portal/base.html' %}
+
+{% load static  from staticfiles %}
 
 {% block content %}
 <h1> TU PROFILE </h1>
   {% if user.is_authenticated %}
-        Datos de tu perfil 
-       Profile = {{ profile.nombre }}
-        <form method="POST" action="">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit" value="Guardar">
-        </form>
 
-        <img src="{{ user.socialaccount_set.all.0.get_avatar_url }}" />
-        <p><a href="{% url 'account_logout' %}">Log Out</a></p>
+
+
+   <div class="row">
+                <div class="col-md-4">
+                     <div >
+                        <a class="img-box lightbox circle shadow-1" href="#">
+                        {% if perfil.imagen %}
+                            
+                            <img  src="{{ perfil.imagen.url }}" />
+ 
+                        {% else %}
+                     
+                    
+                             <img  src="{{ user.socialaccount_set.all.0.get_avatar_url }}" />
+
+                        {% endif %}
+                        </a>
+                    </div>
+                    
+                </div>
+                <div class="col-md-4">
+                     
+
+
+                    Datos de tu perfil 
+                    <form method="POST" enctype="multipart/form-data" action="">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <input type="submit" value="Guardar">
+                    </form>
+
+
+
+                </div>
+    </div>
+
+
+ 
+        
+  
     {% else %}
         <p>You are not logged in</p>
         <a href="{% url 'account_login' %}">Log In</a> |

@@ -1,0 +1,10 @@
+{% extends 'portal/base.html' %}
+
+{% block content %}
+<h1> DETALLE EMPRESA </h1>
+  
+ Nombre:  {{ empresa.nombre }}
+    <br> <br> <br> <br>
+ <a class="btn-text" href="{{ empresa.get_delete_url }}">Eliminar empresa</a>
+
+{% endblock content %}

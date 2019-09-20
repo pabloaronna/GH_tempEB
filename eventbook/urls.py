@@ -24,16 +24,15 @@ from django.contrib.auth.decorators import login_required
 #from appUsuarios.views import UserView, signup
 from django.conf import settings
 from django.conf.urls.static import static
-
-
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #path('login/', auth_views.LoginView.as_view( template_name='login.html' ), name='login'),
-    #path('logout/', auth_views.LogoutView.as_view( next_page='/accounts/login' ), name='logout'),
-    url(r'^usuarios/',  include('appUsuarios.urls')),
-    #path('signup/', signup, name='signup'),
+    url(r'^usuario/',  include('appUsuarios.urls')),
+    url(r'^empresa/',  include('appEmpresas.urls')),
     path('', include('portal.urls')),
     url(r'^accounts/', include('allauth.urls')),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+urlpatterns += staticfiles_urlpatterns()

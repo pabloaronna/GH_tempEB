@@ -1,0 +1,15 @@
+{% extends 'portal/base.html' %}
+
+{% block content %}
+<h1> CREAR EMPRESA </h1>
+  {% if user.is_authenticated %}
+       Usuario: {{usuario.id}} - {{usuario.email}}
+         <form method="POST" enctype="multipart/form-data" action="">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Guardar">
+        </form>
+
+    {% endif %}
+    
+{% endblock content %}

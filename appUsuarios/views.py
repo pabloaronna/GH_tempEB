@@ -16,12 +16,12 @@ def UserProfileEditView(request):
         pass
     
     if obj != None:
-        form = ProfileForm(request.POST or None, instance=obj)
+        form = ProfileForm(request.POST or None,request.FILES or None, instance=obj)
         if form.is_valid():
             form.save()
 
     else:
-        form = ProfileForm(request.POST or None)
+        form = ProfileForm(request.POST or None, request.FILES or None)
         
         if form.is_valid():
             obj = form.save(commit=False)
@@ -30,7 +30,7 @@ def UserProfileEditView(request):
     
     template_name = 'appUsuarios/profile.html'
 
-    context = {"form": form}
+    context = {"form": form, "perfil": obj,}
 
    
     return render(request, template_name, context)

@@ -1,0 +1,72 @@
+{% extends 'portal/base.html' %}
+
+{% load static  from staticfiles %}
+
+{% block content %}
+
+ <div class="container col-md-3 text-left">
+    <ol class="breadcrumb b white">
+        <li><a href="/">Home</a></li>
+        <li class="active">Mis Empresas</li>
+    </ol>
+ </div>
+
+ <br> <br> 
+<a href="{% url 'empresa-create' %}" class="circle-button btn btn-sm">Crear nueva empresa</a>
+ 
+<h1 class="text-center">MIS EMPRESAS</h1>
+
+
+
+ <div class="section-empty section-item text-center">
+ 
+        <div class="container content">
+
+            <hr class="space m" />
+            <div class="text-center">
+                <div class="row">
+                 {% for empresa in misEmpresas %}
+                  
+                            <div style="margin-bottom:33px" class="grid-item col-md-6">
+                                <div class="advs-box advs-box-top-icon-img niche-box-post boxed-inverse" data-anima="scale-rotate" data-trigger="hover">
+                                    <div class="block-infos">
+                                        <div style="background-color:gray" class="block-data">
+                                         <p class="bd-month"> </p>
+                                        <i  style="color: white" class="fa fa-mobile"></i> 
+                                            <p  class="bd-day">{{ empresa.telefono }}</p>
+                                            <p class="bd-month"> </p>
+                                        </div>
+                                        <a class="block-comment" href="#">2 <i class="fa fa-comment-o"></i></a>
+                                    </div>
+                                    {% if  empresa.imagen_logo %}
+
+                                    <a class="img-box" href="#"><img class="anima" src="{{ empresa.imagen_logo.url }}" alt="" /></a>
+
+                                    {% else %}
+                                    
+                                    <a class="img-box" href="#"><img class="anima" src="{% static 'images/image-1.jpg' %}" alt="" /></a>
+                                    
+                                    {% endif %}
+                                    <div class="advs-box-content">
+                                        <h2 class="text-m"><a href="#">{{ empresa.nombre }}</a></h2>
+                                        <div class="tag-row">
+                                            <span><i class="fa fa-bookmark"></i> <a href="{{ empresa.get_info_url }}">INFO</a></span>
+                                            <span><i class="fa fa-pencil"></i><a href="{{ empresa.get_admin_url }}">ADMIN</a></span>
+                                        </div>
+                                        <p class="niche-box-content">
+                                            {{ empresa.descripcion }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+ 
+                    
+                    {% endfor %}
+                </div>
+            </div>
+   </div>
+            </div>
+ 
+    
+{% endblock content %}

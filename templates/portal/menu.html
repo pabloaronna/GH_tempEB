@@ -1,0 +1,56 @@
+ {% load static  from staticfiles %}
+
+  <header class="fixed-top scroll-change" >
+        <div class="navbar navbar-default mega-menu-fullwidth navbar-fixed-top" role="navigation">
+            <div class="navbar navbar-main">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <a class="navbar-brand" href="index.html">
+                            <img class="logo-default" src="{% static 'images/logo-black.png' %}" alt="logo" />
+                            <img class="logo-retina" src="{% static 'images/logo-retina-black.png' %}" alt="logo" />
+                        </a>
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <div class="nav navbar-nav navbar-right">
+                            <ul class="nav navbar-nav">
+                                <li class="dropdown active">
+                                    <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button">Portal <span class="caret"></span></a>
+                                    <ul class="dropdown-menu multi-level">
+                                        <li><a href="/">home</a></li>
+                                         <li><a href="{% url 'portal-novedades' %}">Novedades</a></li>
+                                        <li><a href="index-freelancer.html">Freelancer</a></li>
+                                        <li><a href="index-business.html">Business</a></li>
+                                        <li><a href="index-video.html">Video</a></li>
+                                        <li><a href="index-cooworking.html">Cooworking</a></li>
+                                        <li><a href="index-fullpage.html">Fullpage</a></li>
+                                        <li><a href="index-mobile.html">Mobile</a></li>
+                                        <li><a href="index-application.html">Application</a></li>
+                                        <li><a href="index.html">Intro</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown active">
+                                    <a href="/admin" class="dropdown-toggle" data-toggle="dropdown" role="button">Admin <span class="caret"></span></a>
+                                    <ul class="dropdown-menu multi-level">
+                                      {% if user.is_authenticated %}
+                                       <li><a href="{% url 'empresa-lista' %}">Mis empresas</a></li>
+                                       <li><a href="{% url 'user-profile' %}">Mi perfil</a></li>
+                                        <li><a href="{% url 'account_logout' %}">Log Out</a></li>
+                                         
+                                        
+                                      {% else %}
+                                       <li><a href="{% url 'account_login' %}">Log in</a></li>
+                                      {% endif %}
+                                    </ul>
+                                </li>
+                               
+                    
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>

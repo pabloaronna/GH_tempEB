@@ -1,0 +1,15 @@
+{% extends 'portal/base.html' %}
+
+{% block content %}
+<h1> ELIMINAR EMPRESA </h1>
+  {% if user.is_authenticated %}
+     <form action='.' method='POST'>{% csrf_token %}
+    <h4>Elimina la empresa "{{ object.nombre }}"?</h4>
+    <br><br>
+    <p><input type='submit' value='Yes' />  <a href='/empresa/lista/'>Cancelar</a></p>
+
+</form>
+
+    {% endif %}
+    
+{% endblock content %}

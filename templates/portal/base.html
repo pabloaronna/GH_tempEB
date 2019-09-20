@@ -1,0 +1,104 @@
+{% load static  from staticfiles %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script src="{% static 'HTWF/scripts/jquery.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'HTWF/scripts/bootstrap/css/bootstrap.css' %}">
+    <script src="{% static 'HTWF/scripts/script.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'HTWF/style.css' %}">
+    <link rel="stylesheet" href="{% static 'HTWF/css/content-box.css' %}">
+    <link rel="stylesheet" href="{% static 'HTWF/css/image-box.css' %}">
+    <link rel="stylesheet" href="{% static 'HTWF/css/animations.css' %}">
+    <link rel="stylesheet" href="{% static 'HTWF/css/components.css' %}">
+        <link rel="stylesheet" href="{% static 'HTWF/scripts/flexslider/flexslider.css' %}">
+    <link rel="stylesheet" href="{% static 'HTWF/scripts/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'HTWF/scripts/php/contact-form.css' %}">
+    <link rel="stylesheet" href="{% static 'HTWF/scripts/social.stream.css' %}">
+    <link rel="icon" href="{% static 'images/favicon.png' %}">
+    <link rel="stylesheet" href="{% static 'skin.css' %}">
+
+    {% if title %}
+    <title>{{ title }}</title>
+    {% else %}
+      <title>Portal Home</title>
+    {% endif %}
+
+    <meta name="description" content="Marketing para la expansión de eventos">
+
+  </head>
+  <body>
+    <div id="preloader"></div>
+
+    {% include "portal/menu.html" %}
+    
+     <div class="section-bg-image bg-top" style="background-image:url({% static 'images/long-1.jpg' %})">
+        <div class="container content">
+            {% block content %}
+
+            {% endblock content %}
+
+        </div>
+    </div>
+    <i class="scroll-top scroll-top-mobile show fa fa-sort-asc"></i>
+    <footer class="footer-base">
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 footer-center text-left">
+                        <img width="120" src="{% static 'images/logo.png' %}" alt="" />
+                    </div>
+                    <div class="col-md-6 footer-left text-left">
+                        <p>Collins Street West 8007, San Fransico, United States.</p>
+                        <div class="tag-row">
+                            <span>support@company.com</span>
+                            <span>+02 3205550678</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 footer-left text-right text-left-sm">
+                        <div class="btn-group social-group btn-group-icons">
+                            <a target="_blank" href="index-main.html#" data-social="share-facebook">
+                                <i class="fa fa-facebook text-xs circle"></i>
+                            </a>
+                            <a target="_blank" href="index-main.html#" data-social="share-twitter">
+                                <i class="fa fa-twitter text-xs circle"></i>
+                            </a>
+                            <a target="_blank" href="index-main.html#" data-social="share-google">
+                                <i class="fa fa-google-plus text-xs circle"></i>
+                            </a>
+                            <a target="_blank" href="index-main.html#" data-social="share-linkedin">
+                                <i class="fa fa-linkedin text-xs circle"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row copy-row">
+                <div class="col-md-12 copy-text">
+                    © 2018 Signflow - Multipurpose & Tech Business Template <span>Handmade by <a href="http://schiocco.io/">schiocco.io</a></span>
+                </div>
+            </div>
+        </div>
+        <link rel="stylesheet" href="{% static 'HTWF/scripts/font-awesome/css/font-awesome.css' %}">
+        <script async src="{% static 'HTWF/scripts/bootstrap/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'HTWF/scripts/imagesloaded.min.js' %}"></script>
+        <script async src="{% static 'HTWF/scripts/isotope.min.js' %}"></script>
+        <script async src="{% static 'HTWF/scripts/jquery.tab-accordion.js' %}"></script>
+        <script src="{% static 'HTWF/scripts/parallax.min.js' %}"></script>
+        <script src="{% static 'HTWF/scripts/flexslider/jquery.flexslider-min.js' %}"></script>
+        <script async src="{% static 'HTWF/scripts/php/contact-form.js' %}"></script>
+        <script async src="{% static 'HTWF/scripts/jquery.progress-counter.js' %}"></script>
+        <script async src="{% static 'HTWF/scripts/bootstrap/js/bootstrap.popover.min.js' %}"></script>
+        <script async src="{% static 'HTWF/scripts/jquery.magnific-popup.min.js' %}"></script>
+        <script src="{% static 'HTWF/scripts/social.stream.min.js' %}"></script>
+        <script src="{% static 'HTWF/scripts/jquery.slimscroll.min.js' %}"></script>
+        
+    </footer>  
+
+  </body>
+</html>

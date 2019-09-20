@@ -6,6 +6,11 @@ from django.conf import settings
 from django.db import models
 from django.db.models.signals import post_save
 
+from PIL import Image
+from io import BytesIO
+from django.core.files.uploadedfile import InMemoryUploadedFile
+import sys
+
 User = settings.AUTH_USER_MODEL
 
 
@@ -75,6 +80,13 @@ class ProfileManager(models.Manager):
         # do something with the book
         return profile
 
+def upload_location(instance, filename):
+	im = None
+	if filename:
+		filebase, extension = filename.split(".")
+		im = "%s/%s.%s" %("profiles",instance.id, extension)
+	
+	return im
 
 class Profile(models.Model):
 	usuario 				= models.OneToOneField(User, verbose_name=("Usuario"), on_delete=models.CASCADE)
@@ -94,7 +106,7 @@ class Profile(models.Model):
 	descripcion				= models.TextField(blank=True)
 	is_bloqueado			= models.BooleanField(verbose_name="Login Bloqueado", default=False)
 	is_deuda				= models.BooleanField(verbose_name="Posee Deuda", default=False)
-	url_imagen_perfil		= models.URLField( max_length=200, blank=True)
+	imagen					= models.ImageField( upload_to=upload_location, null=True, blank=True)
 	last_update				= models.DateTimeField(auto_now=True)
 	
 	objects = ProfileManager()
@@ -106,5 +118,9 @@ class Profile(models.Model):
 
 	def __str__(self):
 		return self.usuario.email
+
+	
+
+
 	
 

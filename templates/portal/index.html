@@ -1,0 +1,313 @@
+{% extends 'portal/base.html' %}
+
+{% load static  from staticfiles %}
+
+{% block content %}
+
+
+
+  
+
+            <div class="row">
+                <div class="col-md-10 col-center text-center" data-anima="fade-in" data-time="1000">
+                    <hr class="space m" />
+                    <h1>Crea, comparte y gestiona tus eventos</h1>
+                    <hr class="space" />
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'account_signup' %}" class="circle-button btn btn-lg shadow-1">Ir a tu panel de control</a><span class="space"></span>
+                        <a href="/" class="circle-button btn btn-border btn-lg"><i class="fa fa-play"></i>Ver eventos</a>
+                    {% else %}
+                        <a href="{% url 'account_signup' %}" class="circle-button btn btn-lg shadow-1">Crea tu empresa</a><span class="space"></span>
+                        <a href="/" class="circle-button btn btn-border btn-lg"><i class="fa fa-play"></i>Ver eventos</a>
+                    {% endif %}
+
+                </div>
+            </div>
+            <hr class="space" />
+            <hr class="space" />
+            <hr class="space l" />
+            <div class="flexslider carousel outer-navs" data-options="minWidth:200,itemMargin:30,numItems:3,controlNav:true,directionNav:true">
+                <ul class="slides">
+                    <li>
+                        <div class="advs-box advs-box-top-icon-img boxed-inverse shadow-1">
+                            <a class="img-box lightbox img-scale-up" href="index-main.html#">
+                                <span><img src="{% static 'images/image-1.jpg' %}" alt=""></span>
+                            </a>
+                            <div class="advs-box-content">
+                                <h3>Smart products</h3>
+                                <p>
+                                    Interdum iusto pulvinar consequuntur augue optio, repellat fuga! Purus expedita fusco.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="advs-box advs-box-top-icon-img boxed-inverse shadow-1">
+                            <a class="img-box lightbox img-scale-up" href="index-main.html#">
+                                <span><img src="{% static 'images/image-2.jpg' %}" alt=""></span>
+                            </a>
+                            <div class="advs-box-content">
+                                <h3>Summer solutions</h3>
+                                <p>
+                                    Interdum iusto pulvinar consequuntur augue optio, repellat fuga! Purus expedita fusco.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="advs-box advs-box-top-icon-img boxed-inverse shadow-1">
+                            <a class="img-box lightbox img-scale-up" href="index-main.html#">
+                                <span><img src="{% static 'images/image-3.jpg' %}" alt=""></span>
+                            </a>
+                            <div class="advs-box-content">
+                                <h3>Travels and explore</h3>
+                                <p>
+                                    Interdum iusto pulvinar consequuntur augue optio, repellat fuga! Purus expedita fusco.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="advs-box advs-box-top-icon-img boxed-inverse shadow-1">
+                            <a class="img-box lightbox img-scale-up" href="index-main.html#">
+                                <span><img src="{% static 'images/image-1.jpg' %}" alt=""></span>
+                            </a>
+                            <div class="advs-box-content">
+                                <h3>Content box title</h3>
+                                <p>
+                                    Interdum iusto pulvinar consequuntur augue optio, repellat fuga! Purus expedita fusco.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <hr class="space" />
+            <h1 class="text-l text-center">
+                Hit the ground running<br />
+                with out-of-the-box search excellence
+            </h1>
+            <hr class="space" />
+            <div class="grid-list">
+                <div class="grid-box row">
+                    <div class="grid-item col-md-4">
+                        <div class="icon-box">
+                            <div class="icon-box-cell">
+                                <i class="fa fa-calendar-check-o  text-xl"></i>
+                            </div>
+                            <div class="icon-box-cell">
+                                <label class="text-m">Error tolerance</label>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipiscing elitsed do eiusmod tempor incididunte.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-item col-md-4">
+                        <div class="icon-box">
+                            <div class="icon-box-cell">
+                                <i class="fa fa-commenting-o text-xl"></i>
+                            </div>
+                            <div class="icon-box-cell">
+                                <label class="text-m">Smart support</label>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipiscing elitsed do eiusmod tempor incididunte.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-item col-md-4">
+                        <div class="icon-box">
+                            <div class="icon-box-cell">
+                                <i class="fa fa-cubes text-xl"></i>
+                            </div>
+                            <div class="icon-box-cell">
+                                <label class="text-m">Tunnelling</label>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipiscing elitsed do eiusmod tempor incididunte.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-item col-md-4">
+                        <div class="icon-box">
+                            <div class="icon-box-cell">
+                                <i class="fa fa-keyboard-o text-xl"></i>
+                            </div>
+                            <div class="icon-box-cell">
+                                <label class="text-m">Fast shortcuts</label>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipiscing elitsed do eiusmod tempor incididunte.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-item col-md-4">
+                        <div class="icon-box">
+                            <div class="icon-box-cell">
+                                <i class="fa fa-desktop text-xl"></i>
+                            </div>
+                            <div class="icon-box-cell">
+                                <label class="text-m">Metal case</label>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipiscing elitsed do eiusmod tempor incididunte.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-item col-md-4">
+                        <div class="icon-box">
+                            <div class="icon-box-cell">
+                                <i class="fa fa-flash text-xl"></i>
+                            </div>
+                            <div class="icon-box-cell">
+                                <label class="text-m">Real-time records</label>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipiscing elitsed do eiusmod tempor incididunte.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="space" />
+            <div class="row">
+                <div class="col-md-4 col-sm-12 text-center-sm">
+                    <h1>Extreme processors</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elitsed do eiusmod tempor incididu ipsum doloo.</p>
+                    <hr class="space xs" />
+                    <ul class="fa-ul text-color text-center-sm">
+                        <li><i class="fa-li fa fa-check"></i> Nanometric technologies</li>
+                        <li><i class="fa-li fa fa-check"></i> Thousands of billions of transistors</li>
+                    </ul>
+                    <hr class="space visible-sm" />
+                </div>
+                <div class="col-md-8 col-sm-12">
+                    <div class="flexslider slider nav-inner white" data-options="controlNav:true,directionNav:false">
+                        <ul class="slides">
+                            <li>
+                                <a class="img-box lightbox inner" href="http://www.framework-y.com/images/thumb-large.png">
+                                    <span><img src="{% static 'images/gallery/large-1.jpg' %}" alt="" /></span>
+                                    <span class="caption-box">
+                                        <span class="caption">
+                                            Lorem ipsum dolor sit amet consectetur adipiscing. Lorem ipsum dolor sit amet consectetur adipiscing elitsed do eiusmod tempor incididunt utlabore et dolore magna aliqua.
+                                            Utenim ad minim veniam quis nostrud exercitation ullamco laboris nisio.
+                                        </span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="img-box lightbox inner" href="http://www.framework-y.com/images/thumb-large.png">
+                                    <span><img src="{% static 'images/gallery/large-1.jpg' %}" alt="" /></span>
+                                    <span class="caption-box">
+                                        <span class="caption">
+                                            Lorem ipsum dolor sit amet consectetur adipiscing. Lorem ipsum dolor sit amet consectetur adipiscing elitsed do eiusmod tempor incididunt utlabore et dolore magna aliqua.
+                                            Utenim ad minim veniam quis nostrud exercitation ullamco laboris nisio.
+                                        </span>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <h1 class="text-center">See the killer features</h1>
+            <hr class="space" />
+            <div class="row vertical-row">
+                <div class="col-md-6">
+                    <img src="{% static 'images/box-1.png' %}" alt="" data-anima="fade-left" data-time="1000" />
+                </div>
+                <div class="col-md-6">
+                    <h4>Analytics & reporting</h4>
+                    <p>
+                        Algolia’s analytics dashboard helps product teams better understand what their users are looking for most, as well as where they are hitting dead-ends most often.
+                        Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismo.
+                    </p>
+                    <a href="index-main.html#" class="circle-button btn btn-sm">View datas</a>
+                </div>
+            </div>
+            <hr class="space m" />
+            <div class="row vertical-row">
+                <div class="col-md-6">
+                    <h4>Analytics & reporting</h4>
+                    <p>
+                        Algolia’s analytics dashboard helps product teams better understand what their users are looking for most, as well as where they are hitting dead-ends most often.
+                        Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismo.
+                    </p>
+                    <hr class="space s" />
+                    <a href="index-main.html#" class="circle-button btn btn-sm">View datas</a><span class="space"></span>
+                    <a href="index-main.html#" class="circle-button btn btn-border btn-sm">Details</a>
+                </div>
+                <div class="col-md-6">
+                    <img src="{% static 'images/box-2.png' %}" alt="" data-anima="fade-right" data-time="1000" />
+                </div>
+            </div>
+
+ 
+            <div class="row">
+                <div class="col-md-4">
+                    <h1>People are beautiful</h1>
+                    <p>
+                        Aaboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+                        in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    </p>
+                </div>
+                <div class="col-md-8 boxed-inverse shadow-1">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4>Premium support</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipiscing elitsed doido.</p>
+                            <hr class="space s" />
+                            <div class="counter-box-simple text-color-2"><span class="counter text-l" data-speed="5000" data-to="50000" data-refresh-interval="100"></span><span> Costumers</span></div>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="fa-ul text-color ">
+                                <li><i class="fa-li fa fa-check"></i> Experienced team</li>
+                                <li><i class="fa-li fa fa-check"></i> Lovely, friendly and funny people</li>
+                                <li><i class="fa-li fa fa-check"></i> Thousands of satisfied cosutmers</li>
+                                <li><i class="fa-li fa fa-check"></i> Billions of transistors</li>
+                                <li><i class="fa-li fa fa-check"></i> Nanometric technologies</li>
+                                <li><i class="fa-li fa fa-check"></i> Revolutionary flow work method</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="space" />
+            <div class="flexslider carousel outer-navs" data-options="minWidth:200,itemMargin:30,numItems:4,controlNav:false,directionNav:true">
+                <ul class="slides">
+                    <li>
+                        <a class="img-box lightbox shadow-1" href="../images/gallery/image-1.jpg" data-lightbox-anima="fade-top">
+                            <img src="{% static 'images/gallery/image-1.jpg' %}" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="img-box lightbox shadow-1" href="../images/gallery/image-1.jpg" data-lightbox-anima="fade-top">
+                            <img src="{% static 'images/gallery/image-2.jpg' %}" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="img-box lightbox shadow-1" href="../images/gallery/image-1.jpg" data-lightbox-anima="fade-top">
+                            <img src="{% static 'images/gallery/image-9.jpg' %}" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="img-box lightbox shadow-1" href="../images/gallery/image-1.jpg" data-lightbox-anima="fade-top">
+                            <img src="{% static 'images/gallery/image-3.jpg' %}" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="img-box lightbox shadow-1" href="../images/gallery/image-1.jpg" data-lightbox-anima="fade-top">
+                            <img src="{% static 'images/gallery/image-1.jpg' %}" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+
+
+    
+
+{% endblock content %}
